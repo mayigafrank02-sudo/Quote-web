@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J QUOTES - Daily Motivation & Inspiration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cbc;
+            --accent-color: #ff9a8b;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f0f4f8;
+            min-height: 100vh;
+            transition: var(--transition);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+        
+        .logo-main {
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        
+        .logo-sub {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .theme-selector {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .theme-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .theme-default {
+            background: linear-gradient(135deg, #4a6fa5, #2c3e50);
+        }
+        
+        .theme-warm {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+        }
+        
+        .theme-cool {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+        }
+        
+        .theme-dark {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-header i {
+            font-size: 1.5rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            line-height: 1.8;
+        }
+        
+        .quote-author {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .verse-text {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .verse-reference {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 1rem;
+        }
+        
+        .devotion-text {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .designer-credit {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            margin: 1rem 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .designer-credit i {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.3rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .logo-main {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Theme Styles */
+        .theme-warm-active {
+            --primary-color: #e67e22;
+            --secondary-color: #d35400;
+            --accent-color: #ff7675;
+            --dark-color: #a84300;
+        }
+        
+        .theme-cool-active {
+            --primary-color: #1abc9c;
+            --secondary-color: #16a085;
+            --accent-color: #74b9ff;
+            --dark-color: #0d6251;
+        }
+        
+        .theme-dark-active {
+            --primary-color: #34495e;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --light-color: #2c3e50;
+            background-color: #1a252f;
+        }
+        
+        .theme-dark-active .card {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+        
+        .theme-dark-active .quote-text,
+        .theme-dark-active .verse-text {
+            color: #ecf0f1;
+        }
+        
+        /* Daily notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 100;
+            max-width: 300px;
+        }
+        
+        .notification.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .notification-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .date-display {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        /* J QUOTES brand styling */
+        .brand-highlight {
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+        
+        .fjm-badge {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        @media (max-width: 768px) {
+            .fjm-badge {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-top: 10px;
+                order: 3;
+            }
+            
+            .header-content {
+                position: relative;
+            }
+        }
+    </style>
+</head>
+<body class="theme-default-active">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-quote-right logo-icon"></i>
+                    <div class="logo-text">
+                        <div class="logo-main">J QUOTES</div>
+                        <div class="logo-sub">Daily Motivation & Inspiration</div>
+                    </div>
+                </div>
+                
+                <div class="fjm-badge">
+                    <i class="fas fa-code"></i> Designed by @fjm technologies ug
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="quotes">Quotes</a></li>
+                        <li><a href="#" class="nav-link" data-page="verses">Verses</a></li>
+                        <li><a href="#" class="nav-link" data-page="devotion">Devotion</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="theme-selector">
+                    <div class="theme-btn theme-default" data-theme="default"></div>
+                    <div class="theme-btn theme-warm" data-theme="warm"></div>
+                    <div class="theme-btn theme-cool" data-theme="cool"></div>
+                    <div class="theme-btn theme-dark" data-theme="dark"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="date-display" id="dateDisplay"></div>
+            
+            <h1 class="page-title" id="pageTitle">Daily Inspiration</h1>
+            
+            <div class="content-grid" id="contentContainer">
+                <!-- Content will be dynamically generated here -->
+            </div>
+            
+            <div class="controls">
+                <button class="btn" id="newQuoteBtn">
+                    <i class="fas fa-sync-alt"></i> New Daily Content
+                </button>
+                <button class="btn" id="saveFavoriteBtn">
+                    <i class="fas fa-heart"></i> Save as Favorite
+                </button>
+                <button class="btn btn-secondary" id="shareBtn">
+                    <i class="fas fa-share-alt"></i> Share Inspiration
+                </button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>Your daily source of motivation, inspiration, and spiritual guidance</p>
+                
+                <div class="designer-credit">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Designed by <strong>Frank Junior</strong> | @fjm technologies ug</span>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="Share this site"><i class="fas fa-share"></i></a>
+                </div>
+                
+                <p>&copy; <span id="currentYear"></span> <span class="brand-highlight">J QUOTES</span>. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart" style="color: var(--accent-color);"></i> for daily inspiration</p>
+            </div>
+        </div>
+    </footer>
+    
+    <div class="notification" id="notification">
+        <div class="notification-close" id="notificationClose">&times;</div>
+        <div id="notificationMessage">New daily content loaded!</div>
+    </div>
+
+    <script>
+        // Data for the website
+        const quotes = [
+            {
+                text: "The future belongs to those who believe in the beauty of their dreams.",
+                author: "Eleanor Roosevelt",
+                category: "Motivation"
+            },
+            {
+                text: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+                author: "Winston Churchill",
+                category: "Perseverance"
+            },
+            {
+                text: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs",
+                category: "Passion"
+            },
+            {
+                text: "Your time is limited, so don't waste it living someone else's life.",
+                author: "Steve Jobs",
+                category: "Self-Growth"
+            },
+            {
+                text: "The journey of a thousand miles begins with one step.",
+                author: "Lao Tzu",
+                category: "Beginnings"
+            },
+            {
+                text: "Believe you can and you're halfway there.",
+                author: "Theodore Roosevelt",
+                category: "Confidence"
+            },
+            {
+                text: "Don't watch the clock; do what it does. Keep going.",
+                author: "Sam Levenson",
+                category: "Perseverance"
+            },
+            {
+                text: "The only limit to our realization of tomorrow will be our doubts of today.",
+                author: "Franklin D. Roosevelt",
+                category: "Optimism"
+            },
+            {
+                text: "Life is 10% what happens to you and 90% how you react to it.",
+                author: "Charles R. Swindoll",
+                category: "Attitude"
+            },
+            {
+                text: "The best way to predict the future is to create it.",
+                author: "Peter Drucker",
+                category: "Action"
+            }
+        ];
+        
+        const verses = [
+            {
+                text: "For I know the plans I have for you, declares the LORD, plans for welfare and not for evil, to give you a future and a hope.",
+                reference: "Jeremiah 29:11",
+                category: "Hope"
+            },
+            {
+                text: "I can do all things through him who strengthens me.",
+                reference: "Philippians 4:13",
+                category: "Strength"
+            },
+            {
+                text: "Trust in the LORD with all your heart, and do not lean on your own understanding.",
+                reference: "Proverbs 3:5",
+                category: "Trust"
+            },
+            {
+                text: "Be strong and courageous. Do not be frightened, and do not be dismayed, for the LORD your God is with you wherever you go.",
+                reference: "Joshua 1:9",
+                category: "Courage"
+            },
+            {
+                text: "But those who hope in the LORD will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.",
+                reference: "Isaiah 40:31",
+                category: "Renewal"
+            },
+            {
+                text: "The LORD is my shepherd; I shall not want.",
+                reference: "Psalm 23:1",
+                category: "Provision"
+            },
+            {
+                text: "Do not be anxious about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God.",
+                reference: "Philippians 4:6",
+                category: "Peace"
+            },
+            {
+                text: "And we know that for those who love God all things work together for good, for those who are called according to his purpose.",
+                reference: "Romans 8:28",
+                category: "Purpose"
+            },
+            {
+                text: "The Lord is my light and my salvation; whom shall I fear? The Lord is the stronghold of my life; of whom shall I be afraid?",
+                reference: "Psalm 27:1",
+                category: "Protection"
+            },
+            {
+                text: "But seek first the kingdom of God and his righteousness, and all these things will be added to you.",
+                reference: "Matthew 6:33",
+                category: "Priority"
+            }
+        ];
+        
+        const devotions = [
+            {
+                title: "Daily Strength",
+                content: "Today, remember that your strength comes not from your own abilities, but from the Source of all strength. When you feel weak or overwhelmed, take a moment to breathe deeply and reconnect with your spiritual foundation. Each challenge you face is an opportunity to grow stronger in faith and character.",
+                focus: "Finding strength in difficult times"
+            },
+            {
+                title: "Gratitude Attitude",
+                content: "Start your day with a heart of gratitude. Even in challenging circumstances, there is always something to be thankful for. Gratitude shifts your perspective from what you lack to what you have, creating a positive mindset that attracts more blessings into your life.",
+                focus: "Cultivating thankfulness"
+            },
+            {
+                title: "Purpose in the Process",
+                content: "Sometimes we get so focused on the destination that we forget the journey itself has purpose. Each step, each struggle, each small victory is shaping you into the person you're meant to become. Trust the process and find meaning in today's moments.",
+                focus: "Finding purpose in daily life"
+            },
+            {
+                title: "Peace in Uncertainty",
+                content: "In times of uncertainty, peace comes from focusing on what you can control - your thoughts, your reactions, your faith. Release what you cannot change and channel your energy into positive actions that align with your values and purpose.",
+                focus: "Maintaining peace amidst chaos"
+            },
+            {
+                title: "The Power of Small Beginnings",
+                content: "Great things often have small beginnings. Don't despise the day of small things. Every giant oak tree was once a little acorn. Your small, consistent efforts today will lead to significant results tomorrow. Stay faithful in the little things.",
+                focus: "Valuing small steps"
+            },
+            {
+                title: "Overcoming Fear",
+                content: "Fear is a natural human emotion, but it doesn't have to control you. When fear arises, acknowledge it, then choose to move forward in faith. Remember that courage is not the absence of fear, but the decision to act despite it.",
+                focus: "Facing fears with faith"
+            }
+        ];
+        
+        // Current page state
+        let currentPage = 'home';
+        let currentQuoteIndex = 0;
+        let currentVerseIndex = 0;
+        let currentDevotionIndex = 0;
+        
+        // DOM Elements
+        const contentContainer = document.getElementById('contentContainer');
+        const pageTitle = document.getElementById('pageTitle');
+        const dateDisplay = document.getElementById('dateDisplay');
+        const newQuoteBtn = document.getElementById('newQuoteBtn');
+        const saveFavoriteBtn = document.getElementById('saveFavoriteBtn');
+        const shareBtn = document.getElementById('shareBtn');
+        const notification = document.getElementById('notification');
+        const notificationClose = document.getElementById('notificationClose');
+        const notificationMessage = document.getElementById('notificationMessage');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Display current date
+            updateDateDisplay();
+            
+            // Load initial content
+            loadPageContent();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Show welcome notification
+            setTimeout(() => {
+                showNotification("Welcome to J QUOTES! Your daily source of inspiration.");
+            }, 1000);
+        });
+        
+        // Update date display
+        function updateDateDisplay() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            dateDisplay.textContent = now.toLocaleDateString('en-US', options);
+        }
+        
+        // Set up event listeners
+        function setupEventListeners() {
+            // Navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    
+                    // Update active nav link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Load page content
+                    currentPage = page;
+                    loadPageContent();
+                    
+                    // Show notification
+                    if (page === 'quotes') {
+                        showNotification("Browse our collection of motivational quotes");
+                    } else if (page === 'verses') {
+                        showNotification("Explore memorable verses for daily strength");
+                    } else if (page === 'devotion') {
+                        showNotification("Find daily devotional content for spiritual growth");
+                    } else {
+                        showNotification("Welcome to J QUOTES home page");
+                    }
+                });
+            });
+            
+            // Theme selector
+            themeButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const theme = this.getAttribute('data-theme');
+                    changeTheme(theme);
+                });
+            });
+            
+            // New quote button
+            newQuoteBtn.addEventListener('click', function() {
+                if (currentPage === 'home' || currentPage === 'quotes') {
+                    currentQuoteIndex = Math.floor(Math.random() * quotes.length);
+                    loadPageContent();
+                    showNotification("New quote loaded! Keep inspiring yourself.");
+                } else if (currentPage === 'verses') {
+                    currentVerseIndex = Math.floor(Math.random() * verses.length);
+                    loadPageContent();
+                    showNotification("New verse loaded! Find strength in these words.");
+                } else if (currentPage === 'devotion') {
+                    currentDevotionIndex = Math.floor(Math.random() * devotions.length);
+                    loadPageContent();
+                    showNotification("New devotion loaded! Reflect on today's message.");
+                }
+            });
+            
+            // Save favorite button
+            saveFavoriteBtn.addEventListener('click', function() {
+                let favoriteText = "";
+                let itemType = "";
+                
+                if (currentPage === 'home' || currentPage === 'quotes') {
+                    favoriteText = quotes[currentQuoteIndex].text;
+                    itemType = "quote";
+                } else if (currentPage === 'verses') {
+                    favoriteText = verses[currentVerseIndex].text;
+                    itemType = "verse";
+                } else if (currentPage === 'devotion') {
+                    favoriteText = devotions[currentDevotionIndex].title;
+                    itemType = "devotion";
+                }
+                
+                // Save to localStorage
+                const favorites = JSON.parse(localStorage.getItem('jQuotesFavorites')) || [];
+                favorites.push({
+                    type: itemType,
+                    content: favoriteText,
+                    timestamp: new Date().toISOString()
+                });
+                
+                localStorage.setItem('jQuotesFavorites', JSON.stringify(favorites));
+                showNotification("Saved to favorites! You can view your saved items later.");
+            });
+            
+            // Share button
+            shareBtn.addEventListener('click', function() {
+                let shareText = "";
+                let shareTitle = "J QUOTES - ";
+                
+                if (currentPage === 'home' || currentPage === 'quotes') {
+                    shareText = `"${quotes[currentQuoteIndex].text}" - ${quotes[currentQuoteIndex].author}`;
+                    shareTitle += "Daily Quote";
+                } else if (currentPage === 'verses') {
+                    shareText = `${verses[currentVerseIndex].text} (${verses[currentVerseIndex].reference})`;
+                    shareTitle += "Memorable Verse";
+                } else if (currentPage === 'devotion') {
+                    shareText = `${devotions[currentDevotionIndex].title}: ${devotions[currentDevotionIndex].content.substring(0, 100)}...`;
+                    shareTitle += "Daily Devotion";
+                }
+                
+                // Use Web Share API if available
+                if (navigator.share) {
+                    navigator.share({
+                        title: shareTitle,
+                        text: shareText,
+                        url: window.location.href
+                    });
+                } else {
+                    // Fallback - copy to clipboard
+                    navigator.clipboard.writeText(`${shareText}\n\nShared from J QUOTES\nDesigned by @fjm technologies ug`);
+                    showNotification("Content copied to clipboard! You can now share it.");
+                }
+            });
+            
+            // Notification close button
+            notificationClose.addEventListener('click', function() {
+                notification.classList.remove('show');
+            });
+            
+            // Auto-refresh content every hour
+            setInterval(function() {
+                if (currentPage === 'home') {
+                    currentQuoteIndex = Math.floor(Math.random() * quotes.length);
+                    currentVerseIndex = Math.floor(Math.random() * verses.length);
+                    currentDevotionIndex = Math.floor(Math.random() * devotions.length);
+                    loadPageContent();
+                    showNotification("Daily content refreshed automatically!");
+                }
+            }, 3600000); // 1 hour
+        }
+        
+        // Change theme
+        function changeTheme(theme) {
+            // Remove all theme classes
+            document.body.classList.remove(
+                'theme-default-active',
+                'theme-warm-active',
+                'theme-cool-active',
+                'theme-dark-active'
+            );
+            
+            // Add selected theme class
+            document.body.classList.add(`theme-${theme}-active`);
+            
+            // Save theme preference
+            localStorage.setItem('jQuotesTheme', theme);
+            
+            // Show notification
+            const themeNames = {
+                'default': 'Default Blue',
+                'warm': 'Warm Orange',
+                'cool': 'Cool Teal',
+                'dark': 'Dark Mode'
+            };
+            
+            showNotification(`Theme changed to ${themeNames[theme]}`);
+        }
+        
+        // Show notification
+        function showNotification(message) {
+            notificationMessage.textContent = message;
+            notification.classList.add('show');
+            
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 5000);
+        }
+        
+        // Load page content based on current page
+        function loadPageContent() {
+            contentContainer.innerHTML = '';
+            
+            if (currentPage === 'home') {
+                pageTitle.textContent = 'Daily Inspiration';
+                renderHomePage();
+            } else if (currentPage === 'quotes') {
+                pageTitle.textContent = 'Motivational Quotes';
+                renderQuotesPage();
+            } else if (currentPage === 'verses') {
+                pageTitle.textContent = 'Memorable Verses';
+                renderVersesPage();
+            } else if (currentPage === 'devotion') {
+                pageTitle.textContent = 'Daily Devotion';
+                renderDevotionPage();
+            }
+        }
+        
+        // Render home page
+        function renderHomePage() {
+            // Get random indices for each section
+            const quoteIndex = Math.floor(Math.random() * quotes.length);
+            const verseIndex = Math.floor(Math.random() * verses.length);
+            const devotionIndex = Math.floor(Math.random() * devotions.length);
+            
+            // Update current indices
+            currentQuoteIndex = quoteIndex;
+            currentVerseIndex = verseIndex;
+            currentDevotionIndex = devotionIndex;
+            
+            // Create cards
+            const quoteCard = createQuoteCard(quotes[quoteIndex]);
+            const verseCard = createVerseCard(verses[verseIndex]);
+            const devotionCard = createDevotionCard(devotions[devotionIndex]);
+            
+            // Add cards to container
+            contentContainer.appendChild(quoteCard);
+            contentContainer.appendChild(verseCard);
+            contentContainer.appendChild(devotionCard);
+        }
+        
+        // Render quotes page
+        function renderQuotesPage() {
+            // Show all quotes in a grid
+            quotes.forEach((quote, index) => {
+                const card = createQuoteCard(quote);
+                
+                // Add a data attribute to track index
+                card.setAttribute('data-index', index);
+                
+                // Add click event to set as current
+                card.addEventListener('click', function() {
+                    currentQuoteIndex = index;
+                    showNotification(`"${quote.text.substring(0, 50)}..." selected`);
+                });
+                
+                contentContainer.appendChild(card);
+            });
+        }
+        
+        // Render verses page
+        function renderVersesPage() {
+            // Show all verses in a grid
+            verses.forEach((verse, index) => {
+                const card = createVerseCard(verse);
+                
+                // Add a data attribute to track index
+                card.setAttribute('data-index', index);
+                
+                // Add click event to set as current
+                card.addEventListener('click', function() {
+                    currentVerseIndex = index;
+                    showNotification(`"${verse.reference}" selected`);
+                });
+                
+                contentContainer.appendChild(card);
+            });
+        }
+        
+        // Render devotion page
+        function renderDevotionPage() {
+            // Show all devotions in a grid
+            devotions.forEach((devotion, index) => {
+                const card = createDevotionCard(devotion);
+                
+                // Add a data attribute to track index
+                card.setAttribute('data-index', index);
+                
+                // Add click event to set as current
+                card.addEventListener('click', function() {
+                    currentDevotionIndex = index;
+                    showNotification(`"${devotion.title}" selected`);
+                });
+                
+                contentContainer.appendChild(card);
+            });
+        }
+        
+        // Create quote card
+        function createQuoteCard(quote) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <i class="fas fa-quote-left"></i>
+                    <h3>Quote of the Day</h3>
+                </div>
+                <div class="card-body">
+                    <p class="quote-text">"${quote.text}"</p>
+                    <p class="quote-author">- ${quote.author}</p>
+                    <div style="margin-top: 15px; color: var(--secondary-color); font-size: 0.9rem;">
+                        <i class="fas fa-tag"></i> ${quote.category}
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Create verse card
+        function createVerseCard(verse) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Memorable Verse</h3>
+                </div>
+                <div class="card-body">
+                    <p class="verse-text">${verse.text}</p>
+                    <p class="verse-reference">${verse.reference}</p>
+                    <div style="margin-top: 15px; color: var(--secondary-color); font-size: 0.9rem;">
+                        <i class="fas fa-tag"></i> ${verse.category}
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Create devotion card
+        function createDevotionCard(devotion) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <i class="fas fa-pray"></i>
+                    <h3>Daily Devotion</h3>
+                </div>
+                <div class="card-body">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">${devotion.title}</h4>
+                    <p class="devotion-text">${devotion.content}</p>
+                    <div style="margin-top: 15px; color: var(--secondary-color); font-size: 0.9rem;">
+                        <i class="fas fa-crosshairs"></i> Focus: ${devotion.focus}
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // Load saved theme preference
+        function loadSavedTheme() {
+            const savedTheme = localStorage.getItem('jQuotesTheme');
+            if (savedTheme) {
+                changeTheme(savedTheme);
+                
+                // Update active theme button
+                themeButtons.forEach(btn => {
+                    if (btn.getAttribute('data-theme') === savedTheme) {
+                        btn.style.transform = 'scale(1.2)';
+                        btn.style.boxShadow = '0 0 10px rgba(255,255,255,0.8)';
+                    }
+                });
+            }
+        }
+        
+        // Initialize theme from saved preference
+        window.addEventListener('load', function() {
+            loadSavedTheme();
+        });
+    </script>
+</body>
+</html>
